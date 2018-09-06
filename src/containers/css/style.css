@@ -1,0 +1,34 @@
+.card {
+    margin: 10px 0;
+    min-height: 400px;
+}
+
+.wishlists-group .card {
+    min-height: 115px;
+}
+
+.card img {
+    max-width: 100%;
+}
+
+.navbar-default {
+    height: 85px;
+}
+
+.navbar-default .navbar-brand {
+    display: block;
+    width: 100%;
+}
+
+.show-wishlist {
+    margin-top: 10px;
+    float: right;
+}
+
+.navbar-brand>img {
+    display: inline-block;
+}
+
+a[role="menuitem"] {
+    padding: 0 20px;
+}
