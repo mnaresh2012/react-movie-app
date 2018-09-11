@@ -21,11 +21,7 @@ export default class MovieApp extends Component {
             showWishLists: false
         }
     }
-
-    componentDidMount() {
-        //store.dispatch(addMovieToList({name:"santhosh"}))
-    }
-
+    
     handleChange = (e) => {
         this.setState({
             searchTerm: e.target.value
@@ -45,18 +41,11 @@ export default class MovieApp extends Component {
         store.dispatch(addMovieToList(list));
     }
 
-    handleCreateList = () => {
-        console.log('create lists');
-    }
-
     addMovieListHandler = (movieList, listName, index) => {
         store.dispatch(addMovieToList(movieList, listName, index))
     }    
 
     fetchMovieLists = (searchTerm) => {
-        // const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`)
-        // const json = response.json();
-        // return json.result();
         return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`)
         .then(data => data.json())
         .then(data => this.movieLists = data.results)
