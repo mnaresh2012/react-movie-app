@@ -4,7 +4,6 @@ import SearchBox from '../components/SearchBox';
 import { API_KEY } from '../constants';
 import Header from '../components/Header';
 import NoResult from '../components/NoResult';
-import './css/style.css';
 
 import store from '../store';
 import {addMovieToList} from '../actions/movieLists';
@@ -14,16 +13,11 @@ export default class MovieApp extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
             searchTerm: "",
             searchLists: [],
             showWishLists: false
         }
-    }
-
-    componentDidMount() {
-        //store.dispatch(addMovieToList({name:"santhosh"}))
     }
 
     handleChange = (e) => {
@@ -45,18 +39,11 @@ export default class MovieApp extends Component {
         store.dispatch(addMovieToList(list));
     }
 
-    handleCreateList = () => {
-        console.log('create lists');
-    }
-
     addMovieListHandler = (movieList, listName, index) => {
         store.dispatch(addMovieToList(movieList, listName, index))
     }    
 
     fetchMovieLists = (searchTerm) => {
-        // const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`)
-        // const json = response.json();
-        // return json.result();
         return fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&language=en-US&query=${searchTerm}&page=1&include_adult=false`)
         .then(data => data.json())
         .then(data => this.movieLists = data.results)
@@ -86,9 +73,7 @@ export default class MovieApp extends Component {
                             handleSubmit={this.handleSubmit}
                             />
                     </div>    
-                    <div className="col-sm-2">
-                        
-                    </div>               
+                    <div className="col-sm-2"></div>               
                 </div>
 
                  <div className="row">                                         
