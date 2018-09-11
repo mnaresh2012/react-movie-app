@@ -12,7 +12,6 @@ const render = () => {
 }
 render();
 store.subscribe(()=> {
-    console.log(store.getState());
     localStorage.setItem('movieLists', JSON.stringify(store.getState().favLists));   
     render();
 })
